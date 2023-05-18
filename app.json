@@ -1,6 +1,6 @@
 {
     "name": "Zᴇᴅᴢᴇ ✘",
-    "description": "A Telegram Music Player Bot, written in Python with Pyrogram and Py-Tgcalls.",
+    "description": "Un bot de telegram reproductor de musica, escrito en Python con Pyrogram y Py-Tgcalls.",
     "logo": "https://telegra.ph/file/ff3d94744211c796cf5bb.jpg",
     "keywords": [
     "python3",
@@ -13,28 +13,28 @@
     ],
     "env": {
       "API_ID": {
-        "description": "Get api id from https://my.telegram.org",
+        "description": "Obtenga su api id de https://my.telegram.org",
         "value": "",
         "required": true
       },
       "API_HASH": {
-        "description": "Get api hash from https://my.telegram.org",
+        "description": "Obtenga su api hash de https://my.telegram.org",
         "value": "",
         "required": true
       },
       "BOT_TOKEN": {
-        "description": "A Bot's token from Botfather",
+        "description": "El token de su bot, obtenido en Botfather",
         "value": "",
         "required": true
       },
       "MONGO_DB_URI": {
-        "description": "Get a mongodb url from https://cloud.mongodb.com.",
+        "description": "Obtenga una url mongodb de https://cloud.mongodb.com.",
         "value": "",
         "required": true
       },
       "MUSIC_BOT_NAME": {
-        "description": "A name for your Music Bot. You can use special characters bot ko jhaat farak ni padega",
-        "value": "ZedzeX Music",
+        "description": "El nombre de tu bot de musica. Puedes usar caracteres especiales",
+        "value": "nickicantina",
         "required": true
       },
       "OWNER_ID": {
@@ -48,17 +48,17 @@
         "required": true
       },
       "HEROKU_API_KEY": {
-        "description": "Your Heroku account's API key",
+        "description": "La  API key de tu cuenta de Heroku",
         "value": "",
         "required": false
       },
       "HEROKU_APP_NAME": {
-        "description": "Your heroku app/bot's name",
+        "description": "El nombre de tu app/bot en heroku",
         "value": "",
         "required": false
       },
       "LOG_GROUP_ID": {
-        "description": "Your Log Group ID, add your bot and promote as an admin with full rights!. Channel ki id mat daal dena bsdk.",
+        "description": "La ID de su grupo de registro, agregue su bot y dele admin con todos los permisos!",
         "value": "",
         "required": true
       }

@@ -24,7 +24,7 @@ async def init():
         and not config.STRING5
     ):
         LOGGER("ZedzeX").error(
-            "WTF Baby ! Atleast add a pyrogram string, How Cheap..."
+            "Agregue su pyrogram string..."
         )
         return
     if (
@@ -32,7 +32,7 @@ async def init():
         and not config.SPOTIFY_CLIENT_SECRET
     ):
         LOGGER("ZedzeX").warning(
-            "Sur spotify id aur secret toh daala hi nahi aapne ab toh spotify se nahi chala paaoge gaane."
+            "Error con el cliente de spotify."
         )
     try:
         users = await get_gbanned()
@@ -47,30 +47,30 @@ async def init():
     for all_module in ALL_MODULES:
         importlib.import_module("ZedzeX.plugins." + all_module)
     LOGGER("ZedzeX.plugins").info(
-        "Necessary Modules Imported Successfully."
+        "Modulos necesarios importados correctamente."
     )
     await userbot.start()
     await Zedze.start()
     try:
-        await Zedze.stream_decall("https://telegra.ph/file/de3464aa7d6bfafdd2dc3.mp4")
+        await Zedze.stream_decall("https://telegra.ph/file/de3464aa7d6bfafdd2dc3.mp4") #wtf
     except:
         pass
     try:
         await Zedze.stream_call(
-            "https://te.legra.ph/file/29f784eb49d230ab62e9e.mp4"
+            "https://te.legra.ph/file/29f784eb49d230ab62e9e.mp4" #wtf
         )
     except NoActiveGroupCall:
         LOGGER("ZedzeX").error(
-            "[ERROR] - \n\nHey Baby, firstly open telegram and turn on voice chat in Logger Group else fu*k off. If you ever ended voice chat in log group i will stop working and users will fu*k you up."
+            "[ERROR] - \n\nPrimero inicie el chat de voz en el grupo de telegram."
         )
         sys.exit()
     except:
         pass
     await Zedze.decorators()
-    LOGGER("ZedzeX").info("Zedze Music Bot Started Successfully")
+    LOGGER("ZedzeX").info("Zedze Music Bot incio correctamente")
     await idle()
 
 
 if __name__ == "__main__":
     loop.run_until_complete(init())
-    LOGGER("ZedzeX").info("Stopping Zedze Music Bot...")
+    LOGGER("ZedzeX").info("Deteniendo Zedze Music Bot...")

@@ -33,7 +33,7 @@ HEROKU_API_KEY = getenv("HEROKU_API_KEY", None)
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", None)
 
 # For customized or modified Repository
-UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/team-katil/zedzemusic")
+UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/bl815v/tgbotmusica")
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 
 # GIT TOKEN ( if your edited repo is private)
@@ -160,7 +160,7 @@ SONG_DOWNLOAD_DURATION_LIMIT = int(
 if UPSTREAM_REPO:
     if not re.match("(?:http|https)://", UPSTREAM_REPO):
         print(
-            "[ERROR] - Your UPSTREAM_REPO url is wrong. Please ensure that it starts with https://"
+            "[ERROR] - La url de su UPSTREAM_REPO esta mal. Por favor asegurese que inicia con https://"
         )
         sys.exit()
 

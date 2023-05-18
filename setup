@@ -21,84 +21,84 @@ yesnoprompt(){
 }
 
 update() {
-	pprint "\n\nUpdating package list.. "
-	sudo apt update 2>&1 | grep "can be upgraded" &>/dev/null
+	pprint "\n\nActualizacion de la lista de paquetes.. "
+	sudo apt update 2>&1 | grep "Se puede actualizar" &>/dev/null
 	if [ $? -eq 0 ]; then
-		pprint "UPDATE AVAILABLE" "cgreen"
-		pprint "\n\nDo you want to automatically upgrade (y/n)?"
+		pprint "Actualizacion disponible" "cgreen"
+		pprint "\n\Deseas actualizar automaticamente (y/n)?"
 		if yesnoprompt; then
-			pprint "\n\nUpgrading packages.. "
+			pprint "\n\nActualizando paquetes.. "
 			sudo apt upgrade -y &>/dev/null &&
-			pprint "DONE!\n\n" "cgreen" || (pprint "FAIL.\n\n" "cred"; exit 1)
+			pprint "Listo!\n\n" "cgreen" || (pprint "Fallo.\n\n" "cred"; exit 1)
 		else
 			echo
 		fi
 	else
-		pprint "ALREADY UP TO DATE\n\n" "cgreen"
+		pprint "YA ESTA ACTUALIZADO\n\n" "cgreen"
 	fi
 }
 
 packages(){
 	if ! command -v pip &>/dev/null; then
-		pprint "Couldn't found pip, installing now..."
+		pprint "No se pudo encontrar pip, instalando ahora..."
 		sudo apt install python3-pip -y 2>pypilog.txt 1>/dev/null &&
-		pprint "SUCCESS.\n\n" "cgreen" || (pprint "FAIL.\n\n" "cred"; exit 1)
+		pprint "INSTALADO.\n\n" "cgreen" || (pprint "Fallo.\n\n" "cred"; exit 1)
 	fi
 
 	if ! command -v ffmpeg &>/dev/null; then
-		pprint "Couldn't found ffmpeg, installing now..."
+		pprint "No se pudo encontrar ffmpeg, instalando ahora..."
 		if sudo apt install ffmpeg -y &>/dev/null;then
-			pprint "SUCCESS.\n\n" "cgreen"
+			pprint "Listo.\n\n" "cgreen"
 		else
-			pprint "FAIL.\n\n" "cred"
-			pprint "You need to install ffmpeg manually in order to deploy ZedzeX Music, exiting...\n" "cblue"
+			pprint "Fallo.\n\n" "cred"
+			pprint "Debe implementar ffmpeg manualmente, saliendo...\n" "cblue"
 			exit 1
 		fi
 	fi
 
 	# Check ffmpeg version and warn user if necessary.
 	fv=$(grep -Po 'version (3.*?) ' <<< $(ffmpeg -version)) &&
-	pprint "Playing live streams not going to work since you have ffmpeg $fv, live streams are supported by version 4+.\n" "cblue"
+	pprint "Reproduccion en transmisiones en vivo no va a funcionar ya que tienes ffmpeg $fv, las transmisiones en vivo son compatibles con la version 4+.\n" "cblue"
 }
 
 
 node(){
 	command -v npm &>/dev/null && return
-	pprint "Installing Nodejs and Npm..  "
+	pprint "Instalando Nodejs y Npm..  "
 	curl -fssL https://deb.nodesource.com/setup_18.x | sudo -E bash - &>nodelog.txt &&
 	sudo apt install nodejs -y &>>nodelog.txt &&
 	sudo npm i -g npm &>>nodelog.txt &&
-	pprint "SUCCESS!\n" "cgreen" || (pprint "FAIL.\n" "cred"; exit 1)
+	pprint "LISTO!\n" "cgreen" || (pprint "Fallo.\n" "cred"; exit 1)
 }
 
 
 installation(){
-	pprint "\n\nUpgrading pip and installing dependency packages..."
+	pprint "\n\nActualizando pip e instalando paquetes de dependencia..."
 	pip3 install -U pip &>>pypilog.txt &&
 	pip3 install -U -r requirements.txt &>>pypilog.txt &&
-	pprint "DONE.\n" "cgreen" && return
-	pprint "FAIL.\n" "cred"
+	pprint "LISTO.\n" "cgreen" && return
+	pprint "Fallo.\n" "cred"
 	exit 1
 }
 
 clear
-pprint "Welcome to ZedzeXMusic Setup Installer\n\n"
-pprint "If you see any error during Installation Process, Please refer to these files for logs: "
-pprint "\nFor node js errors , Checkout nodelog.txt"
-pprint "\nFor pypi packages errors , Checkout pypilog.txt"
+pprint "Bienvenido al instalador de configuración de ZedzeXMusic\n\n"
+pprint "Si ve algun error durante el proceso de instalacion, consulte estos archivos para obtener registros:"
+pprint "\nPara errores de node js, revise nodelog.txt"
+pprint "\nPara errores de paquetes pypi, revise pypilog.txt"
 sleep 1
-pprint "\n\nScript needs sudo privileges in order to update & install packages.\n"
+pprint "\n\nEl script necesita privilegios sudo para actualizar e instalar paquetes.\n"
 sudo test
 
 update
 packages
 node
 installation
-pprint "\n\n\n\n\nZedzeX Music Installation Completed !" "cgreen"
+pprint "\n\n\n\n\n ZedzeX music instalado completamente!" "cgreen"
 sleep 1
 clear
 
-pprint "\nEnter Your Values Below\n\n\n"
+pprint "\nIngrese los valores de abajo\n\n\n"
 pprint "API ID: "; color_reset; read api_id
 pprint "\nAPI HASH: "; color_reset; read api_hash
 pprint "\nBOT TOKEN: "; color_reset; read bot_token
@@ -108,7 +108,7 @@ pprint "\nMONGO DB URI: "; color_reset; read mongo_db
 pprint "\nLOG GROUP ID: "; color_reset; read logger
 pprint "\nSTRING SESSION: "; color_reset; read string_session
 
-pprint "\n\nProcessing your vars, wait a while !" "cgreen"
+pprint "\n\nProcesando sus variables, Espere un momento!" "cgreen"
 
 if [ -f .env ]; then
 	rm .env
@@ -124,5 +124,5 @@ STRING_SESSION = $string_session
 OWNER_ID = $ownid""" > .env
 clear
 
-pprint "\n\n\nThanks for using ZedzeX Music installer, your vars have been saved successfully ! \nIf you wanna add more variables add them in your env by : vi .env"
-pprint "\n\nNow you can start the bot by : bash start\n\n"
+pprint "\n\n\nGracias por usar el instalador de ZedzeX Music, sus variables se han guardado con éxito! \nIf you wanna add more variables add them in your env by : vi .env"
+pprint "\n\nAhora puede iniciar el bot por: bash start\n\n"

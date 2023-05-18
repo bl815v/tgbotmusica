@@ -1,1 +1,1 @@
-<p>Original repository from https://github.com/team-katil/zedzemusic</p>
+<p> This is a Spanish translation. Original repository from https://github.com/team-katil/zedzemusic</p>
