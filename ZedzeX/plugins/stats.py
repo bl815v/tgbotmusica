@@ -106,7 +106,7 @@ async def gstats_global(client, message: Message, _):
         vidid,
     ) = await YouTube.details(videoid, True)
     title = title.title()
-    final = f"ᴛᴏᴩ ᴍᴏsᴛ ᴩʟᴀʏᴇᴅ ᴛʀᴀᴄᴋ ᴏɴ {MUSIC_BOT_NAME}\n\n**ᴛɪᴛʟᴇ:** {title}\n\nᴩʟᴀʏᴇᴅ** {co} **ᴛɪᴍᴇs."
+    final = f"Top cancion mas reproducida por {MUSIC_BOT_NAME}\n\n**Titulo:** {title}\n\nReproducida** {co} **veces."
     upl = get_stats_markup(
         _, True if message.from_user.id in SUDOERS else False
     )
@@ -180,9 +180,9 @@ async def top_users_ten(client, CallbackQuery: CallbackQuery, _):
                 details = stats.get(items)
                 title = (details["title"][:35]).title()
                 if items == "telegram":
-                    msg += f"🍒 [ᴛᴇʟᴇɢʀᴀᴍ ᴍᴇᴅɪᴀ](https://t.me/unique_chat_world) ** ᴩʟᴀʏᴇᴅ {count} ᴛɪᴍᴇs**\n\n"
+                    msg += f"🍒 [ᴛᴇʟᴇɢʀᴀᴍ ᴍᴇᴅɪᴀ](https://t.me/unique_chat_world) ** reproducido {count} veces**\n\n"
                 else:
-                    msg += f"📌 [{title}](https://www.youtube.com/watch?v={items}) ** ᴩʟᴀʏᴇᴅ {count} ᴛɪᴍᴇs**\n\n"
+                    msg += f"📌 [{title}](https://www.youtube.com/watch?v={items}) ** reproducido {count} veces**\n\n"
 
             temp = (
                 _["gstats_4"].format(
@@ -224,7 +224,7 @@ async def top_users_ten(client, CallbackQuery: CallbackQuery, _):
             except:
                 continue
             limit += 1
-            msg += f"💖 `{extract}` ᴩʟᴀʏᴇᴅ {count} ᴛɪᴍᴇs ᴏɴ ʙᴏᴛ.\n\n"
+            msg += f"💖 `{extract}` reproducido {count} veces por el bot.\n\n"
         temp = (
             _["gstats_5"].format(limit, MUSIC_BOT_NAME)
             if what == "Chats"
@@ -274,21 +274,21 @@ async def overall_stats(client, CallbackQuery, _):
     cm = config.CLEANMODE_DELETE_MINS
     text = f"""**ʙᴏᴛ's sᴛᴀᴛs ᴀɴᴅ ɪɴғᴏ:**
 
-**ᴍᴏᴅᴜʟᴇs:** {mod}
+**Modulos:** {mod}
 **ᴄʜᴀᴛs:** {served_chats} 
-**ᴜsᴇʀs:** {served_users} 
-**ʙʟᴏᴄᴋᴇᴅ:** {blocked} 
+**Usuarios:** {served_users} 
+**Bloqueados:** {blocked} 
 **sᴜᴅᴏᴇʀs:** {sudoers} 
     
-**ǫᴜᴇʀɪᴇs:** {total_queries} 
-**ᴀssɪsᴛᴀɴᴛs:** {assistant}
+**Consultaas:** {total_queries} 
+**Asistentes:** {assistant}
 **ᴀss ᴀᴜᴛᴏ ʟᴇᴀᴠᴇ:** {ass}
 **ᴄʟᴇᴀɴᴍᴏᴅᴇ:** {cm} ᴍɪɴᴜᴛᴇs
 
-**ᴅᴜʀᴀᴛɪᴏɴ ʟɪᴍɪᴛ:** {play_duration} ᴍɪɴᴜᴛᴇs
-**ᴅᴏᴡɴʟᴏᴀᴅ ʟɪᴍɪᴛ:** {song} ᴍɪɴᴜᴛᴇs
-**ᴩʟᴀʏʟɪsᴛ ʟɪᴍɪᴛ:** {playlist_limit}
-**ᴩʟᴀʏʟɪsᴛ ᴩʟᴀʏ ʟɪᴍɪᴛ:** {fetch_playlist}"""
+**Limite de duracion:** {play_duration} ᴍɪɴᴜᴛᴇs
+**Limite de descargas:** {song} ᴍɪɴᴜᴛᴇs
+**Limite de la playlist:** {playlist_limit}
+**Limite de reproduccion en la playlist:** {fetch_playlist}"""
     med = InputMediaPhoto(media=config.STATS_IMG_URL, caption=text)
     try:
         await CallbackQuery.edit_message_media(
@@ -305,7 +305,7 @@ async def overall_stats(client, CallbackQuery, _):
 async def overall_stats(client, CallbackQuery, _):
     if CallbackQuery.from_user.id not in SUDOERS:
         return await CallbackQuery.answer(
-            "ᴏɴʟʏ ғᴏʀ sᴜᴅᴏ ᴜsᴇʀs.", show_alert=True
+            "Solo para sᴜᴅᴏ ᴜsᴇʀs.", show_alert=True
         )
     callback_data = CallbackQuery.data.strip()
     what = callback_data.split(None, 1)[1]
