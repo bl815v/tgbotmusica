@@ -241,7 +241,7 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
         ],
         [
             InlineKeyboardButton(
-                text="★ ᴄʜᴀᴛ ɢʀᴏᴜᴘ ★", url="https://t.me/unique_chat_world"
+                text="★ Chat ★", url="https://t.me/unique_chat_world"
             ),
         ],
          [
@@ -252,7 +252,7 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
             
 
             InlineKeyboardButton(
-                text="✯ ᴄʟᴏsᴇ ✯", callback_data=f"close",
+                text="✯ Cerrar ✯", callback_data=f"close",
             ),
 
             InlineKeyboardButton(
@@ -270,7 +270,7 @@ def telegram_markup_timer(_, chat_id, played, dur):
     percentage = (played_sec / duration_sec) * 100
     zedze = math.floor(percentage)
     if 0 < zedze <= 2:
-        bar = "⚡ѕтαяє∂ ρℓαყเɳɠ⚡"
+        bar = "⚡Reproduciendo⚡"
     elif 2 < zedze < 3:
         bar = "ﮩ٨ـﮩﮩ٨ـﮩ٨ـﮩ♡ﮩ٨ـ"
     elif 3 <= zedze < 4:
@@ -503,7 +503,7 @@ def telegram_markup_timer(_, chat_id, played, dur):
             
 
             InlineKeyboardButton(
-                text="✯ ᴄʟᴏsᴇ ✯", callback_data=f"close",
+                text="✯ Cerrar ✯", callback_data=f"close",
             ),
 
             InlineKeyboardButton(
@@ -554,7 +554,7 @@ def stream_markup(_, videoid, chat_id):
             
 
             InlineKeyboardButton(
-                text="✯ ᴄʟᴏsᴇ ✯", callback_data=f"close",
+                text="✯ Cerrar ✯", callback_data=f"close",
             ),
 
             InlineKeyboardButton(
@@ -591,7 +591,7 @@ def telegram_markup(_, chat_id):
         ],
         [
             InlineKeyboardButton(
-                text="★ ᴄʜᴀᴛ ɢʀᴏᴜᴘ ★", url="https://t.me/unique_chat_world"
+                text="★ Grupo ★", url="https://t.me/unique_chat_world"
             ),
         ],
          [
@@ -602,7 +602,7 @@ def telegram_markup(_, chat_id):
             
 
             InlineKeyboardButton(
-                text="✯ ᴄʟᴏsᴇ ✯", callback_data=f"close",
+                text="✯ Cerrar ✯", callback_data=f"close",
             ),
 
             InlineKeyboardButton(
@@ -648,7 +648,7 @@ def track_markup(_,chat_id, videoid, user_id, channel, fplay):
             
 
             InlineKeyboardButton(
-                text="✯ ᴄʟᴏsᴇ ✯", callback_data=f"close",
+                text="✯ Cerrar ✯", callback_data=f"close",
             ),
 
             InlineKeyboardButton(
@@ -678,7 +678,7 @@ def livestream_markup(_, videoid, user_id, mode, channel, fplay):
         ],
         [
             InlineKeyboardButton(
-                text="★ ᴄʜᴀᴛ ɢʀᴏᴜᴘ ★", url="https://t.me/unique_chat_world"
+                text="★ Grupo ★", url="https://t.me/unique_chat_world"
             ),
         ],
         [
@@ -724,7 +724,7 @@ def playlist_markup(_, chat_id, videoid, user_id, ptype, channel, fplay):
             
 
             InlineKeyboardButton(
-                text="✯ ᴄʟᴏsᴇ ✯", callback_data=f"close",
+                text="✯ Cerrar ✯", callback_data=f"close",
             ),
 
             InlineKeyboardButton(
@@ -788,7 +788,7 @@ close_keyboard = InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        text="✯ ᴄʟᴏsᴇ ✯", callback_data="close"
+                        text="✯ Cerrar ✯", callback_data="close"
                     )
                 ]    
             ]
@@ -836,7 +836,7 @@ def queue_markup(_, videoid, chat_id):
             
 
             InlineKeyboardButton(
-                text="✯ ᴄʟᴏsᴇ ✯", callback_data=f"close",
+                text="✯ Cerrar ✯", callback_data=f"close",
             ),
 
             InlineKeyboardButton(

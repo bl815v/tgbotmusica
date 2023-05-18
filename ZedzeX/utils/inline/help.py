@@ -32,7 +32,7 @@ def help_pannel(_, START: Union[bool, int] = None):
                 ),
             
                 InlineKeyboardButton(
-                    text="✯ 𝐁𝐥𝐚𝐜𝐤𝐥𝐢𝐬𝐭 ✯",
+                    text="✯ Lista negra ✯",
                     callback_data="help_callback hb3",
                 ),
             ],
@@ -63,7 +63,7 @@ def help_pannel(_, START: Union[bool, int] = None):
             [
            
                 InlineKeyboardButton(
-                    text="✯ 𝐏𝐥𝐚𝐲 ✯",
+                    text="✯ Reproducir ✯",
                     callback_data="help_callback hb8",
                 ),
             
@@ -75,7 +75,7 @@ def help_pannel(_, START: Union[bool, int] = None):
             ],
             [
                 InlineKeyboardButton(
-                    text="⚜️SƬΛᏒƬ⚜️",
+                    text="⚜️Empezar⚜️",
                     callback_data="help_callback hb11",
                 ),
             ],
@@ -94,7 +94,7 @@ def help_back_markup(_):
                     callback_data=f"settings_back_helper",
                 ),
                 InlineKeyboardButton(
-                    text=_["CLOSE_BUTTON"], callback_data=f"✯ 𝐂𝐥𝐨𝐬𝐞 ✯"
+                    text=_["CLOSE_BUTTON"], callback_data=f"✯ Cerrar ✯"
                 )
             ]
         ]
@@ -106,7 +106,7 @@ def private_help_panel(_):
     buttons = [
         [
             InlineKeyboardButton(
-                text="✯ 𝐇𝐞𝐥𝐩 ✯",
+                text="✯ Ayuda ✯",
                 callback_data="settings_back_helper",
             ),
         ],
