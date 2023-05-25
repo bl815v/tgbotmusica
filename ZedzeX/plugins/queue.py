@@ -89,16 +89,16 @@ async def ping_com(client, message: Message, _):
         else:
             IMAGE = get_image(videoid, user_id)
     send = (
-        "**⌛️ᴅᴜʀᴀᴛɪᴏɴ:** ᴜɴᴋɴᴏᴡɴ ᴅᴜʀᴀᴛɪᴏɴ sᴛʀᴇᴀᴍ\n\nᴄʟɪᴄᴋ ᴏɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛᴏ ᴡʜᴏʟᴇ ǫᴜᴇᴜᴇᴅ ʟɪsᴛ."
+        "**⌛️Duracion:** Duracion desconocida\n\nclick abajo para acabar la lista."
         if DUR == "Unknown"
-        else "\nᴄʟɪᴄᴋ ᴏɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ᴡʜᴏʟᴇ ǫᴜᴇᴜᴇᴅ ʟɪsᴛ."
+        else "\nclick abajo para acabar la lista."
     )
     cap = f"""**{config.MUSIC_BOT_NAME} ᴩʟᴀʏᴇʀ**
 
-📌**ᴛɪᴛʟᴇ:** {title}
+📌**Titulo:** {title}
 
-🍒**ᴛʏᴩᴇ:** {typo}
-💖**ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ:** {user}
+🍒**Tipo:** {typo}
+💖**Pedida por:** {user}
 {send}"""
     upl = (
         queue_markup(_, DUR, "c" if cplay else "g", videoid)
@@ -195,11 +195,11 @@ async def queued_tracks(client, CallbackQuery: CallbackQuery, _):
     for x in got:
         j += 1
         if j == 1:
-            msg += f'Playing :\n\n📌 Title : {x["title"]}\nDuration : {x["dur"]}\nBy : {x["by"]}\n\n'
+            msg += f'Reproduciendo :\n\n📌 Titulo : {x["titulo"]}\nDuracion : {x["dur"]}\nPor : {x["by"]}\n\n'
         elif j == 2:
-            msg += f'Queued :\n\n📌 Title : {x["title"]}\nDuration : {x["dur"]}\nBy : {x["by"]}\n\n'
+            msg += f'Añadido a la lista:\n\n📌 Titulo : {x["titulo"]}\nDuracion : {x["dur"]}\nPor : {x["by"]}\n\n'
         else:
-            msg += f'📌 Title : {x["title"]}\nDuration : {x["dur"]}\nBy : {x["by"]}\n\n'
+            msg += f'📌 Titulo : {x["titulo"]}\nDuracion : {x["dur"]}\nPor : {x["by"]}\n\n'
     if "Queued" in msg:
         if len(msg) < 700:
             await asyncio.sleep(1)
@@ -270,16 +270,16 @@ async def queue_back(client, CallbackQuery: CallbackQuery, _):
         else:
             IMAGE = get_image(videoid, user_id)
     send = (
-        "**⌛️ᴅᴜʀᴀᴛɪᴏɴ:** ᴜɴᴋɴᴏᴡɴ ᴅᴜʀᴀᴛɪᴏɴ sᴛʀᴇᴀᴍ\n\nᴄʟɪᴄᴋ ᴏɴ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ᴡʜᴏʟᴇ ǫᴜᴇᴜᴇᴅ ʟɪsᴛ."
+        "**⌛️Duracion:** Duracion desconocida\n\nClick abajo para eliminar la lista."
         if DUR == "Unknown"
-        else "\nᴄʟɪᴄᴋ ᴏɴ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛᴏ ɢᴇᴛ ᴡʜᴏʟᴇ ǫᴜᴇᴜᴇᴅ ʟɪsᴛ."
+        else "\nClick abajo para eliminar la lista."
     )
-    cap = f"""**{config.MUSIC_BOT_NAME} ᴩʟᴀʏᴇʀ**
+    cap = f"""**{config.MUSIC_BOT_NAME} Reproductor**
 
-📌 **ᴛɪᴛʟᴇ:** {title}
+📌 **Titulo:** {title}
 
-🍒 **ᴛʏᴩᴇ:** {typo}
-💖 **ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ:** {user}
+🍒 **Tipo:** {typo}
+💖 **Pedido por:** {user}
 {send}"""
     upl = (
         queue_markup(_, DUR, cplay, videoid)

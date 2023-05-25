@@ -157,12 +157,12 @@ async def start_comm(client, message: Message, _):
 
 📌 **Titulo:** {title}
 
-⏳ **Duracion:** {duration} ᴍɪɴᴜᴛᴇs
+⏳ **Duracion:** {duration} minutos
 👀 **Visitas:** `{views}`
 ⏰ **Publicada en:** {published}
 🎥 **Canal:** {channel}
-📎 **Link del canal:** [ᴠɪsɪᴛ ᴄʜᴀɴɴᴇʟ]({channellink})
-🔗 **Link:** [ᴡᴀᴛᴄʜ ᴏɴ ʏᴏᴜᴛᴜʙᴇ]({link})
+📎 **Link del canal:** [Visitar canal]({channellink})
+🔗 **Link:** [Ver en YouTube]({link})
 
 💖 Busqueda desarrollada por: {config.MUSIC_BOT_NAME}"""
             key = InlineKeyboardMarkup(
@@ -255,7 +255,7 @@ async def welcome(client, message: Message):
     if config.PRIVATE_BOT_MODE == str(True):
         if not await is_served_private_chat(message.chat.id):
             await message.reply_text(
-                "**ᴩʀɪᴠᴀᴛᴇ ᴍᴜsɪᴄ ʙᴏᴛ**\n\nᴏɴʟʏ ғᴏʀ ᴛʜᴇ ᴄʜᴀᴛs ᴀᴜᴛʜᴏʀɪsᴇᴅ ʙʏ ᴍʏ ᴏᴡɴᴇʀ, ʀᴇǫᴜᴇsᴛ ɪɴ ᴍʏ ᴏᴡɴᴇʀ's ᴩᴍ ᴛᴏ ᴀᴜᴛʜᴏʀɪsᴇ ʏᴏᴜʀ ᴄʜᴀᴛ ᴀɴᴅ ɪғ ʏᴏᴜ ᴅᴏɴ'ᴛ ᴡᴀɴᴛ ᴛᴏ ᴅᴏ sᴏ ᴛʜᴇɴ ғᴜ*ᴋ ᴏғғ ʙᴇᴄᴀᴜsᴇ ɪ'ᴍ ʟᴇᴀᴠɪɴɢ."
+                "**Bot de musica privado**\n\nSolo para los chats autorizados por el creador."
             )
             return await app.leave_chat(message.chat.id)
     else:
